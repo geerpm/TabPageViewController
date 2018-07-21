@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,6 +38,22 @@
                             <constraint firstAttribute="height" constant="2" id="5V3-an-ChN"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQt-uu-fa7" userLabel="View badge">
+                        <rect key="frame" x="94" y="11" width="12" height="12"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.30980392156862746" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="BDn-bD-0Hz"/>
+                            <constraint firstAttribute="height" constant="12" id="L6v-IM-oNv"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="tRP-RI-rd9"/>
+                            <constraint firstAttribute="width" constant="12" id="vLW-sz-z42"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BDn-bD-0Hz"/>
+                                <exclude reference="tRP-RI-rd9"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,13 +64,26 @@
                 <constraint firstItem="IWJ-4f-Lz7" firstAttribute="centerX" secondItem="Njo-bq-MVA" secondAttribute="centerX" id="FgI-gv-iu2"/>
                 <constraint firstItem="Sgu-AL-NbW" firstAttribute="top" secondItem="Njo-bq-MVA" secondAttribute="top" priority="750" id="IJz-mm-YfC"/>
                 <constraint firstAttribute="bottom" secondItem="UkM-Ly-JBr" secondAttribute="bottom" id="J0J-D8-GeH"/>
+                <constraint firstItem="qQt-uu-fa7" firstAttribute="top" secondItem="Njo-bq-MVA" secondAttribute="top" constant="6" id="ODX-io-CR2"/>
+                <constraint firstItem="UkM-Ly-JBr" firstAttribute="top" secondItem="qQt-uu-fa7" secondAttribute="bottom" constant="1" id="P1J-Jf-hxJ"/>
                 <constraint firstItem="IWJ-4f-Lz7" firstAttribute="centerY" secondItem="Njo-bq-MVA" secondAttribute="centerY" id="Um2-ZX-MDO"/>
                 <constraint firstItem="IWJ-4f-Lz7" firstAttribute="centerY" secondItem="Njo-bq-MVA" secondAttribute="centerY" id="YZv-VV-EQn"/>
+                <constraint firstItem="qQt-uu-fa7" firstAttribute="leading" secondItem="IWJ-4f-Lz7" secondAttribute="trailing" constant="2" id="bx5-QK-fZW"/>
+                <constraint firstAttribute="trailing" secondItem="qQt-uu-fa7" secondAttribute="trailing" constant="8" id="d8s-DT-god"/>
+                <constraint firstItem="IWJ-4f-Lz7" firstAttribute="top" secondItem="qQt-uu-fa7" secondAttribute="bottom" constant="-6" id="iRy-qZ-Lp1"/>
                 <constraint firstAttribute="trailing" secondItem="Sgu-AL-NbW" secondAttribute="trailing" priority="750" id="mA5-Ef-SrJ"/>
                 <constraint firstItem="UkM-Ly-JBr" firstAttribute="top" secondItem="Sgu-AL-NbW" secondAttribute="bottom" priority="750" id="qYV-Rl-all"/>
             </constraints>
             <size key="customSize" width="151" height="50"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="P1J-Jf-hxJ"/>
+                    <exclude reference="ODX-io-CR2"/>
+                    <exclude reference="d8s-DT-god"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="badge" destination="qQt-uu-fa7" id="ssO-1F-SZL"/>
                 <outlet property="currentBarView" destination="UkM-Ly-JBr" id="YSM-Pt-X2a"/>
                 <outlet property="currentBarViewHeightConstraint" destination="5V3-an-ChN" id="uAf-Fp-c3f"/>
                 <outlet property="itemLabel" destination="IWJ-4f-Lz7" id="CDS-2J-ZMm"/>

@@ -39,11 +39,27 @@ class TabCollectionCell: UICollectionViewCell {
     @IBOutlet fileprivate weak var itemLabel: UILabel!
     @IBOutlet fileprivate weak var currentBarView: UIView!
     @IBOutlet fileprivate weak var currentBarViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var badge: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         currentBarView.isHidden = true
+        
+        badge.isHidden = true
+        badge.layer.cornerRadius = 6
+        
+        _ = NotificationCenter.default.addObserver(forName: TabPageViewController.NotifNameCellBadge, object: nil, queue: .main, using: { [weak self] (notif) in
+            
+            guard let wself = self else { return }
+            if let label = notif.userInfo?["label"] as? String, label == wself.item {
+                if let num = notif.userInfo?["num"] as? Int, num > 0 {
+                    wself.badge.isHidden = false
+                } else {
+                    wself.badge.isHidden = true
+                }
+            }
+        })
     }
 
     override func sizeThatFits(_ size: CGSize) -> CGSize {

@@ -19,6 +19,14 @@ class LimitedTabPageViewController: TabPageViewController {
         tabItems = [(vc1, "First"), (vc2, "Second")]
         option.tabWidth = view.frame.width / CGFloat(tabItems.count)
         option.hidesTopViewOnSwipeType = .all
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            NotificationCenter.default.post(name: TabPageViewController.NotifNameCellBadge, object: nil, userInfo:  ["label": "First", "num": 3])
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                NotificationCenter.default.post(name: TabPageViewController.NotifNameCellBadge, object: nil, userInfo:  ["label": "First", "num": 0])
+            }
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

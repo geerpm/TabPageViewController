@@ -9,6 +9,8 @@
 import UIKit
 
 open class TabPageViewController: UIPageViewController {
+    open static let NotifNameCellBadge = NSNotification.Name(rawValue: "TabCollectionCellBadge")
+    
     open var isInfinity: Bool = false
     open var option: TabPageOption = TabPageOption()
     open var tabItems: [(viewController: UIViewController, title: String)] = []
