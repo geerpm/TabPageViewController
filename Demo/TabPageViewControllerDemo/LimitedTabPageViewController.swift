@@ -22,10 +22,13 @@ class LimitedTabPageViewController: TabPageViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             NotificationCenter.default.post(name: TabPageViewController.NotifNameCellBadge, object: nil, userInfo:  ["label": "First", "num": 3])
+            NotificationCenter.default.post(name: TabPageViewController.NotifNameCellToDisabled, object: nil, userInfo: ["label": "Second"])
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 NotificationCenter.default.post(name: TabPageViewController.NotifNameCellBadge, object: nil, userInfo:  ["label": "First", "num": 0])
+                NotificationCenter.default.post(name: TabPageViewController.NotifNameCellToEnabled, object: nil, userInfo: ["label": "Second"])
             }
+            
         }
     }
 

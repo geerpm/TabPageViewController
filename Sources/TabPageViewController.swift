@@ -10,6 +10,8 @@ import UIKit
 
 open class TabPageViewController: UIPageViewController {
     open static let NotifNameCellBadge = NSNotification.Name(rawValue: "TabCollectionCellBadge")
+    open static let NotifNameCellToEnabled = NSNotification.Name(rawValue: "NotifNameCellToEnabled")
+    open static let NotifNameCellToDisabled = NSNotification.Name(rawValue: "NotifNameCellToDisabled")
     
     open var isInfinity: Bool = false
     open var option: TabPageOption = TabPageOption()

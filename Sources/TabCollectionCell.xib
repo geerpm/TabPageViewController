@@ -84,6 +84,7 @@
             </variation>
             <connections>
                 <outlet property="badge" destination="qQt-uu-fa7" id="ssO-1F-SZL"/>
+                <outlet property="button" destination="Sgu-AL-NbW" id="OBH-Fa-8VC"/>
                 <outlet property="currentBarView" destination="UkM-Ly-JBr" id="YSM-Pt-X2a"/>
                 <outlet property="currentBarViewHeightConstraint" destination="5V3-an-ChN" id="uAf-Fp-c3f"/>
                 <outlet property="itemLabel" destination="IWJ-4f-Lz7" id="CDS-2J-ZMm"/>

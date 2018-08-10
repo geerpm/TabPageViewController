@@ -40,6 +40,7 @@ class TabCollectionCell: UICollectionViewCell {
     @IBOutlet fileprivate weak var currentBarView: UIView!
     @IBOutlet fileprivate weak var currentBarViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var badge: UIView!
+    @IBOutlet fileprivate weak var button: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,6 +59,23 @@ class TabCollectionCell: UICollectionViewCell {
                 } else {
                     wself.badge.isHidden = true
                 }
+            }
+        })
+        
+        _ = NotificationCenter.default.addObserver(forName: TabPageViewController.NotifNameCellToEnabled, object: nil, queue: .main, using: { [weak self] (notif) in
+            guard let wself = self else { return }
+            if let targetLabel = notif.userInfo?["label"] as? String, targetLabel == wself.item {
+                wself.button.isEnabled = true
+                wself.button.isUserInteractionEnabled = true
+                wself.itemLabel.alpha = 1
+            }
+        })
+        _ = NotificationCenter.default.addObserver(forName: TabPageViewController.NotifNameCellToDisabled, object: nil, queue: .main, using: { [weak self] (notif) in
+            guard let wself = self else { return }
+            if let targetLabel = notif.userInfo?["label"] as? String, targetLabel == wself.item {
+                wself.button.isEnabled = false
+                wself.button.isUserInteractionEnabled = false
+                wself.itemLabel.alpha = 0.6
             }
         })
     }
