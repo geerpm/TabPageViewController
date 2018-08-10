@@ -75,7 +75,7 @@ class TabCollectionCell: UICollectionViewCell {
             if let targetLabel = notif.userInfo?["label"] as? String, targetLabel == wself.item {
                 wself.button.isEnabled = false
                 wself.button.isUserInteractionEnabled = false
-                wself.itemLabel.alpha = 0.6
+                wself.itemLabel.alpha = 0.24
             }
         })
     }
